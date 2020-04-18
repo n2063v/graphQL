@@ -1,0 +1,51 @@
+### Create a new question: localhost:3000/graphql/question ###
+
+mutation{
+  add(username: "Max Nguyen", text: "What is testing?"){
+    username, text, id
+  }
+}
+
+mutation{
+  add(username: "Steffen Johnson", text: "What is C#?"){
+    username, text, id
+  }
+}
+
+### Retrieve the list of questions: localhost:3000/graphql/question ###
+
+query{
+  questions{
+     username, text, id
+  }
+}
+
+query{
+  questions{
+     username, text
+  }
+}
+
+### Create a new answer to a question: localhost:3000/graphql/answer (NOTE: questionId needs to replace correctly) ###
+
+mutation{
+  add(username: "BioC", text: "C# is a candy from Microsoft", questionId: "5952c79a4e305b2db82c946e"){
+     username, text, id, questionId
+  }
+}
+
+
+mutation{
+  add(username: "Google", text: "C# is a drug! Dont user it", questionId: "5952c79a4e305b2db82c946e"){
+     username, text, id, questionId
+  }
+}
+
+### Retrieve the list of answers to a question: localhost:3000/graphql/answer (NOTE: questionId needs to replace correctly) ###
+
+query {
+  answers(questionId: "5952c79a4e305b2db82c946e"){
+     username, text, id, questionId
+  }
+}
+
